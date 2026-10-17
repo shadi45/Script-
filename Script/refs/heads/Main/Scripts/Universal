@@ -383,3 +383,140 @@ local Button = GamesTab:CreateButton({
    loadstring(game:HttpGet("https://rawscripts.net/raw/Destroy-Stuff-With-Lightning-Inf-cash-26038"))()
    end,
 })
+
+local Button = GamesTab:CreateButton({
+   Name = "Destroy Stuff With Ligtning",
+   Callback = function()
+   loadstring(game:HttpGet("local Button = GamesTab:CreateButton({
+   Name = "Save The Egg",
+   Callback = function()
+   loadstring(game:HttpGet("
+-- Save The Egg ESP v1.0
+-- Für dein eigenes Roblox-Spiel
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local workspace = game:GetService("Workspace")
+
+local gui = Instance.new("ScreenGui")
+gui.Name = "EggESP"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.fromOffset(300, 380)
+frame.Position = UDim2.new(0, 25, 0.3, 0)
+frame.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
+frame.Parent = gui
+
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 12)
+corner.Parent = frame
+
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 45)
+title.BackgroundTransparency = 1
+title.Text = "🥚 EGG ESP"
+title.TextColor3 = Color3.new(1, 1, 1)
+title.TextSize = 22
+title.Font = Enum.Font.GothamBold
+title.Parent = frame
+
+local scan = Instance.new("TextButton")
+scan.Size = UDim2.new(1, -20, 0, 35)
+scan.Position = UDim2.fromOffset(10, 50)
+scan.Text = "🔎 Eier suchen"
+scan.Parent = frame
+
+local list = Instance.new("ScrollingFrame")
+list.Size = UDim2.new(1, -20, 1, -100)
+list.Position = UDim2.fromOffset(10, 90)
+list.BackgroundColor3 = Color3.fromRGB(35, 35, 48)
+list.BorderSizePixel = 0
+list.ScrollBarThickness = 5
+list.CanvasSize = UDim2.new()
+list.Parent = frame
+
+local layout = Instance.new("UIListLayout")
+layout.Padding = UDim.new(0, 5)
+layout.Parent = list
+
+local highlights = {}
+
+local function clearList()
+    for _, child in ipairs(list:GetChildren()) do
+        if child:IsA("TextButton") then
+            child:Destroy()
+        end
+    end
+end
+
+local function getPosition(obj)
+    if obj:IsA("BasePart") then
+        return obj.Position
+    elseif obj:IsA("Model") then
+        return obj:GetPivot().Position
+    end
+end
+
+local function scanEggs()
+    clearList()
+    local count = 0
+
+    for _, obj in ipairs(workspace:GetDescendants()) do
+        if (obj:IsA("BasePart") or obj:IsA("Model"))
+            and obj.Name:lower():find("egg") then
+
+            count += 1
+
+            local position = getPosition(obj)
+            local button = Instance.new("TextButton")
+            button.Size = UDim2.new(1, -10, 0, 48)
+            button.BackgroundColor3 =
+                Color3.fromRGB(55, 55, 75)
+            button.TextColor3 = Color3.new(1, 1, 1)
+            button.TextSize = 13
+            button.Font = Enum.Font.Gotham
+            button.TextWrapped = true
+            button.Text = obj.Name .. "\n" ..
+                tostring(position)
+            button.Parent = list
+
+            button.Activated:Connect(function()
+                if not obj:IsDescendantOf(workspace) then
+                    return
+                end
+
+                local highlight = highlights[obj]
+
+                if not highlight then
+                    highlight = Instance.new("Highlight")
+                    highlight.Name = "EggESPHighlight"
+                    highlight.FillColor =
+                        Color3.fromRGB(255, 210, 0)
+                    highlight.OutlineColor =
+                        Color3.fromRGB(255, 255, 255)
+                    highlight.DepthMode =
+                        Enum.HighlightDepthMode.AlwaysOnTop
+                    highlight.Adornee = obj
+                    highlight.Parent = obj
+                    highlights[obj] = highlight
+                else
+                    highlight.Enabled = not highlight.Enabled
+                end
+            end)
+        end
+    end
+
+    list.CanvasSize = UDim2.fromOffset(
+        0, count * 53
+    )
+
+    title.Text = "🥚 EGG ESP (" .. count .. ")"
+end
+
+scan.Activated:Connect(scanEggs)
+scanEggs()"
+))()
+   end,
+})
